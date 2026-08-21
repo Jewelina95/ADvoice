@@ -203,12 +203,12 @@ export function ResearchSite({ snapshot }: { snapshot: Snapshot }) {
 
       <section id="evidence" className="section evidence-section">
         <div className="section-title narrow">
-          <p className="eyebrow">One worked example</p>
-          <h2>MetricEvidence → StateCard → traceable conclusion</h2>
-          <p>这里只展示三个代表性状态和一个去标识病例，用于说明方法，不展示完整内部评估。</p>
+          <p className="eyebrow">Structured cognitive task example</p>
+          <h2>一个认知语音任务如何形成可核查结论</h2>
+          <p>以下用一次结构化认知语音任务说明完整处理过程：从任务内指标证据，经过临床状态估计，到筛查结论与后续建议。</p>
         </div>
 
-        <div className="state-tabs" role="tablist" aria-label="代表性临床状态">
+        <div className="state-tabs" role="tablist" aria-label="该任务的临床状态证据">
           {featured.map((state) => (
             <button key={state.id} className={state.id === activeStateId ? "active" : ""} onClick={() => setActiveStateId(state.id)} role="tab" aria-selected={state.id === activeStateId}>
               <span>{state.id}</span>{state.name_zh}
@@ -248,9 +248,9 @@ export function ResearchSite({ snapshot }: { snapshot: Snapshot }) {
 
         <div className="case-example">
           <div className="case-summary">
-            <p className="eyebrow">De-identified case</p>
-            <span>{snapshot.example.caseId} · {snapshot.example.dataset}</span>
-            <h3>{snapshot.example.predictedLabel} screening support</h3>
+            <p className="eyebrow">Task-level screening output</p>
+            <span>{snapshot.example.dataset} · {snapshot.example.task}</span>
+            <h3>筛查结果：{snapshot.example.predictedLabel}</h3>
             <p>{snapshot.example.uncertainty}</p>
             <div className="probabilities">
               {Object.entries(snapshot.example.probabilities).map(([label, value]) => (
@@ -272,11 +272,11 @@ export function ResearchSite({ snapshot }: { snapshot: Snapshot }) {
         </div>
 
         <button className="report-toggle" onClick={() => setReportOpen((open) => !open)} aria-expanded={reportOpen}>
-          <FileText size={18} /> {reportOpen ? "Hide example report" : "Open example report"} <ChevronDown className={reportOpen ? "rotated" : ""} size={17} />
+          <FileText size={18} /> {reportOpen ? "收起筛查报告" : "查看筛查报告"} <ChevronDown className={reportOpen ? "rotated" : ""} size={17} />
         </button>
         {reportOpen && (
           <div className="doctor-report">
-            <div><Stethoscope size={22} /><span><small>Clinical screening report</small><strong>语音认知筛查支持报告</strong></span></div>
+            <div><Stethoscope size={22} /><span><small>Clinical screening report</small><strong>认知语音任务筛查报告</strong></span></div>
             {snapshot.example.reportSections.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
           </div>
         )}

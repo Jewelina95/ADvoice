@@ -19,8 +19,9 @@ test("server-renders the ADvoice research recap", async () => {
   const html = await response.text();
   assert.match(html, /<html lang="zh-CN">/i);
   assert.match(html, /<title>ADvoice · Evidence-governed cognitive screening<\/title>/i);
-  assert.match(html, /MetricEvidence → StateCard/);
-  assert.match(html, /MetricEvidence → StateCard → traceable conclusion/);
+  assert.match(html, /一个认知语音任务如何形成可核查结论/);
+  assert.match(html, /结构化认知语音任务说明完整处理过程/);
+  assert.doesNotMatch(html, /三个代表性状态|去标识病例|De-identified case/);
   assert.match(html, /One constrained path from speech to clinical review/);
   assert.match(html, /Research preview · model under revision/);
   assert.doesNotMatch(html, /SpeechCARE|三条件|失败模式|B1 传统|B2 直接|B3/);
