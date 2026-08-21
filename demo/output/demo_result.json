@@ -1,0 +1,296 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-21T08:56:27.440262+00:00",
+  "example_type": "synthetic_public_demonstration",
+  "task": "Cookie Theft picture description",
+  "input": {
+    "audio": "cookie_theft_demo.wav",
+    "transcript": "Well, the boy is taking cookies from the jar. The girl is, um, reaching for one. The mother is washing the dishes, and the water is, is running over the sink. The stool might fall. I think that is all I can see."
+  },
+  "qc": {
+    "sample_rate_hz": 16000,
+    "vad_threshold_db": -48.01986338496535,
+    "frame_count": 1549,
+    "snr_proxy_db": 66.71530359469827,
+    "clipping_fraction": 0.0,
+    "audio_reliability": 0.8361614583333333,
+    "word_count": 43,
+    "adjacent_repairs": 1,
+    "text_reliability": 0.8940000000000001,
+    "duration_sec": 15.509
+  },
+  "metric_evidence": [
+    {
+      "metric_id": "silence_fraction",
+      "state_id": "S01",
+      "value": 0.1775,
+      "unit": "ratio",
+      "reference_median": 0.4215,
+      "robust_z": -1.158,
+      "directional_z": -1.158,
+      "reliability": 0.711,
+      "missing": false,
+      "confound_tags": [
+        "VAD threshold",
+        "task duration"
+      ],
+      "report_permission": true
+    },
+    {
+      "metric_id": "long_pause_rate_min",
+      "state_id": "S01",
+      "value": 0.0,
+      "unit": "events/min",
+      "reference_median": 13.2597,
+      "robust_z": -2.171,
+      "directional_z": -2.171,
+      "reliability": 0.686,
+      "missing": false,
+      "confound_tags": [
+        "VAD threshold",
+        "task type"
+      ],
+      "report_permission": true
+    },
+    {
+      "metric_id": "pause_mean_sec",
+      "state_id": "S01",
+      "value": 0.1618,
+      "unit": "s",
+      "reference_median": 0.2826,
+      "robust_z": -0.65,
+      "directional_z": -0.65,
+      "reliability": 0.669,
+      "missing": false,
+      "confound_tags": [
+        "VAD threshold"
+      ],
+      "report_permission": true
+    },
+    {
+      "metric_id": "pause_p90_sec",
+      "state_id": "S01",
+      "value": 0.274,
+      "unit": "s",
+      "reference_median": 0.76,
+      "robust_z": -1.324,
+      "directional_z": -1.324,
+      "reliability": 0.652,
+      "missing": false,
+      "confound_tags": [
+        "VAD threshold"
+      ],
+      "report_permission": true
+    },
+    {
+      "metric_id": "voiced_fraction",
+      "state_id": "S02",
+      "value": 0.8225,
+      "unit": "ratio",
+      "reference_median": 0.5785,
+      "robust_z": 1.158,
+      "directional_z": -1.158,
+      "reliability": 0.702,
+      "missing": false,
+      "confound_tags": [
+        "task type",
+        "microphone gain"
+      ],
+      "report_permission": true
+    },
+    {
+      "metric_id": "speech_run_mean_sec",
+      "state_id": "S02",
+      "value": 0.7494,
+      "unit": "s",
+      "reference_median": 0.378,
+      "robust_z": 1.505,
+      "directional_z": -1.505,
+      "reliability": 0.652,
+      "missing": false,
+      "confound_tags": [
+        "VAD threshold",
+        "task type"
+      ],
+      "report_permission": true
+    },
+    {
+      "metric_id": "speech_run_rate_min",
+      "state_id": "S02",
+      "value": 65.768,
+      "unit": "runs/min",
+      "reference_median": 85.585,
+      "robust_z": -0.538,
+      "directional_z": -0.538,
+      "reliability": 0.602,
+      "missing": false,
+      "confound_tags": [
+        "task type"
+      ],
+      "report_permission": true
+    },
+    {
+      "metric_id": "speech_rate_wpm",
+      "state_id": "S02",
+      "value": 166.3543,
+      "unit": "words/min",
+      "reference_median": 245.0215,
+      "robust_z": -0.788,
+      "directional_z": 0.788,
+      "reliability": 0.686,
+      "missing": false,
+      "confound_tags": [
+        "task type",
+        "transcript quality"
+      ],
+      "report_permission": true
+    },
+    {
+      "metric_id": "pronoun_ratio",
+      "state_id": "S07",
+      "value": 0.0698,
+      "unit": "ratio",
+      "reference_median": 0.0283,
+      "robust_z": 3.38,
+      "directional_z": 3.38,
+      "reliability": 0.697,
+      "missing": false,
+      "confound_tags": [
+        "language",
+        "transcript quality",
+        "task type"
+      ],
+      "report_permission": true
+    },
+    {
+      "metric_id": "content_word_ratio",
+      "state_id": "S07",
+      "value": 0.6279,
+      "unit": "ratio",
+      "reference_median": 0.7997,
+      "robust_z": -3.868,
+      "directional_z": 3.868,
+      "reliability": 0.554,
+      "missing": false,
+      "confound_tags": [
+        "language",
+        "POS proxy",
+        "transcript quality"
+      ],
+      "report_permission": false
+    }
+  ],
+  "state_cards": [
+    {
+      "state_id": "S01",
+      "name_zh": "停顿与流畅性负担",
+      "branch": "speech_behavior",
+      "state_z": -1.344,
+      "confidence": 0.685,
+      "category": "normal",
+      "supporting_metrics": [],
+      "counter_evidence": [
+        "long_pause_rate_min",
+        "pause_p90_sec",
+        "silence_fraction",
+        "pause_mean_sec"
+      ],
+      "metric_weights": {
+        "silence_fraction": 0.35,
+        "long_pause_rate_min": 0.25,
+        "pause_mean_sec": 0.2,
+        "pause_p90_sec": 0.2
+      }
+    },
+    {
+      "state_id": "S02",
+      "name_zh": "输出效率",
+      "branch": "speech_behavior",
+      "state_z": -0.413,
+      "confidence": 0.666,
+      "category": "normal",
+      "supporting_metrics": [
+        "speech_rate_wpm"
+      ],
+      "counter_evidence": [
+        "speech_run_mean_sec",
+        "voiced_fraction",
+        "speech_run_rate_min"
+      ],
+      "metric_weights": {
+        "voiced_fraction": 0.25,
+        "speech_run_mean_sec": 0.2,
+        "speech_run_rate_min": 0.2,
+        "speech_rate_wpm": 0.35
+      }
+    },
+    {
+      "state_id": "S07",
+      "name_zh": "词汇提取与具体性",
+      "branch": "language",
+      "state_z": 3.0,
+      "confidence": 0.647,
+      "category": "impaired",
+      "supporting_metrics": [
+        "content_word_ratio",
+        "pronoun_ratio"
+      ],
+      "counter_evidence": [],
+      "metric_weights": {
+        "pronoun_ratio": 0.65,
+        "content_word_ratio": 0.35
+      }
+    }
+  ],
+  "fusion": {
+    "branch_weights": {
+      "speech_behavior": 0.58,
+      "language": 0.42
+    },
+    "branch_scores": {
+      "speech_behavior": -0.885,
+      "language": 3.0
+    },
+    "review_signal": 1.26,
+    "recommendation": "建议结合主诉进行量表复核",
+    "diagnostic_probability": null
+  },
+  "trace": [
+    {
+      "stage": "Input",
+      "value": "cookie_theft_demo.wav",
+      "note": "16-bit PCM WAV + transcript"
+    },
+    {
+      "stage": "MetricEvidence",
+      "value": "10 evidence objects",
+      "note": "value + reference + reliability + confounds"
+    },
+    {
+      "stage": "StateCards",
+      "value": "S01, S02, S07",
+      "note": "within-state reliability-weighted fusion"
+    },
+    {
+      "stage": "Fusion",
+      "value": "1.26",
+      "note": "branch-level review signal, not disease probability"
+    },
+    {
+      "stage": "Report",
+      "value": "建议结合主诉进行量表复核",
+      "note": "screening support only"
+    }
+  ],
+  "report_zh": [
+    "本次演示结论：建议结合主诉进行量表复核。该输出仅展示证据处理流程，不是阿尔茨海默病诊断概率。",
+    "任务内状态：词汇提取与具体性为impaired（状态分数 3.00，可信度 0.65）；输出效率为normal（状态分数 -0.41，可信度 0.67）；停顿与流畅性负担为normal（状态分数 -1.34，可信度 0.69）。",
+    "系统保留了每个指标相对健康训练参考的方向、可靠度、混杂因素和报告权限，因此状态结论可以回到具体计算值。",
+    "如用于真实受试者，仍需结合标准认知量表、病史、日常功能和临床检查进行判断。"
+  ],
+  "limitations": [
+    "The bundled audio is synthetic and is not a patient recording.",
+    "The aggregate reference contains no individual-level data.",
+    "The public demo does not ship the private trained diagnostic model."
+  ]
+}

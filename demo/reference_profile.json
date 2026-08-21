@@ -1,0 +1,19 @@
+{
+  "name": "ADReSS 2020 HC training aggregate",
+  "task": "Cookie Theft picture description",
+  "population": "official training split, HC subjects only",
+  "normalization": "median and max(1.4826*MAD, 0.25*SD, 1e-6)",
+  "source": "8.21/artifacts/ADReSS_2020/cn_reference.json",
+  "metrics": {
+    "silence_fraction": {"median": 0.4214805263, "scale": 0.2106203723},
+    "long_pause_rate_min": {"median": 13.2596718447, "scale": 6.1081473790},
+    "pause_mean_sec": {"median": 0.2826229977, "scale": 0.1858174103},
+    "pause_p90_sec": {"median": 0.76, "scale": 0.3669435},
+    "voiced_fraction": {"median": 0.5785194737, "scale": 0.2106203723},
+    "speech_run_mean_sec": {"median": 0.3780225989, "scale": 0.2467958953},
+    "speech_run_rate_min": {"median": 85.5849764980, "scale": 36.8239936601},
+    "speech_rate_wpm": {"median": 245.0214781841, "scale": 99.7887294651},
+    "pronoun_ratio": {"median": 0.0283348039, "scale": 0.0122576769},
+    "content_word_ratio": {"median": 0.7997252747, "scale": 0.0444234449}
+  }
+}
