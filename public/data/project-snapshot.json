@@ -1,0 +1,1272 @@
+{
+  "generatedAt": "2026-08-21T08:34:26.459960+00:00",
+  "release": "Research preview · model under revision",
+  "researchBoundary": "用于认知风险筛查与转诊支持，不用于阿尔茨海默病确诊。",
+  "channels": [
+    {
+      "id": "clinical_interview",
+      "title": "结构化临床访谈",
+      "shortLabel": "临床访谈",
+      "description": "患者/访谈员角色、问答轮次与患者语音",
+      "enabledStates": [
+        "S01",
+        "S02",
+        "S03",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "unavailableReasons": {
+        "S04": "Device-sensitive loudness is retained as QC/model input, not a clinical state.",
+        "S09": "Cross-language interview coherence has not been clinically calibrated.",
+        "S10": "The interview has no common task-specific content-unit key.",
+        "S14": "The interview is not scored as a single standard task."
+      },
+      "datasets": [
+        {
+          "id": "IAEAV",
+          "name": "IAEAV Spanish clinical interviews",
+          "language": "es",
+          "task": "structured_clinical_interview",
+          "target": "二分类认知筛查（健康对照、阿尔茨海默病）"
+        }
+      ]
+    },
+    {
+      "id": "picture_description",
+      "title": "图片描述",
+      "shortLabel": "图片描述",
+      "description": "标准诱发任务，适合比较停顿、输出与语言组织",
+      "enabledStates": [
+        "S01",
+        "S02",
+        "S03",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S11",
+        "S12"
+      ],
+      "unavailableReasons": {
+        "S04": "Device-sensitive loudness is retained as QC/model input, not a clinical state.",
+        "S09": "Semantic coherence remains planned until task relevance and drift scoring are human-validated.",
+        "S10": "Standard picture-content units have not yet been encoded in this harness.",
+        "S13": "Interaction is not a target construct for the picture-description response.",
+        "S14": "A validated task scoring key is not available in the local release."
+      },
+      "datasets": [
+        {
+          "id": "ADReSS_2020",
+          "name": "ADReSS 2020 Cookie Theft picture description",
+          "language": "en",
+          "task": "cookie_theft_picture_description",
+          "target": "二分类认知筛查（健康对照、阿尔茨海默病）"
+        },
+        {
+          "id": "ADReSSo_2021_diagnosis",
+          "name": "ADReSSo 2021 diagnosis task",
+          "language": "en",
+          "task": "cookie_theft_picture_description",
+          "target": "二分类认知筛查（健康对照、阿尔茨海默病）"
+        },
+        {
+          "id": "ADReSSo_2021_progression",
+          "name": "ADReSSo 2021 cognitive-decline progression task",
+          "language": "en",
+          "task": "longitudinal_picture_description",
+          "target": "二分类纵向认知变化筛查（未下降、下降）"
+        },
+        {
+          "id": "NCMMSC2021_AD",
+          "name": "NCMMSC 2021 AD long-speech track",
+          "language": "zh",
+          "task": "long_picture_description",
+          "target": "三分类认知筛查（健康对照、轻度认知障碍、阿尔茨海默病）"
+        }
+      ]
+    },
+    {
+      "id": "structured_multitask",
+      "title": "结构化多任务",
+      "shortLabel": "结构化任务",
+      "description": "按任务分别校准，再在受试者层融合",
+      "enabledStates": [
+        "S01",
+        "S02",
+        "S03",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S11",
+        "S12"
+      ],
+      "unavailableReasons": {
+        "S04": "Device-sensitive loudness is retained as QC/model input, not a clinical state.",
+        "S09": "Semantic scoring requires a separate validated reference for each task.",
+        "S10": "Content-unit scoring requires a separate validated key for each task.",
+        "S13": "These recordings do not provide a common interviewer-role protocol.",
+        "S14": "Task-specific scoring keys have not yet been encoded."
+      },
+      "datasets": [
+        {
+          "id": "DementiaBank_Pitt",
+          "name": "DementiaBank Pitt multi-task cohort",
+          "language": "en",
+          "task": "talkbank_multitask",
+          "target": "二分类认知筛查（健康对照、阿尔茨海默病）"
+        },
+        {
+          "id": "PREPARE_DrivenData",
+          "name": "NIA PREPARE challenge",
+          "language": "multilingual",
+          "task": "prepare_cognitive_task_audio",
+          "target": "三分类认知筛查（健康对照、轻度认知障碍、阿尔茨海默病及相关障碍）"
+        },
+        {
+          "id": "PROCESS_2",
+          "name": "PROCESS Challenge 2 multi-task speech",
+          "language": "en",
+          "task": "multi_task_cognitive_speech",
+          "target": "三分类认知筛查（健康对照、轻度认知障碍、痴呆）"
+        },
+        {
+          "id": "TAUKADIAL",
+          "name": "TAUKADIAL multilingual cognitive screening",
+          "language": "zh-en",
+          "task": "spontaneous_speech",
+          "target": "二分类认知筛查（健康对照、轻度认知障碍）"
+        }
+      ]
+    },
+    {
+      "id": "public_speech",
+      "title": "公开视频与自由讲话",
+      "shortLabel": "自由讲话",
+      "description": "非标准采集，仅用于外部泛化和鲁棒性审计",
+      "enabledStates": [
+        "S01",
+        "S02",
+        "S03",
+        "S06",
+        "S07",
+        "S08",
+        "S11",
+        "S12"
+      ],
+      "unavailableReasons": {
+        "S04": "Recording gain is uncontrolled in public media.",
+        "S05": "Prosody is strongly confounded by venue, emotion and editing.",
+        "S09": "There is no common elicitation target for semantic coherence.",
+        "S10": "There is no common content-unit key.",
+        "S13": "Interviewer roles are incomplete and heterogeneous.",
+        "S14": "Public speech has no standard task score."
+      },
+      "datasets": [
+        {
+          "id": "DementiaNet_PublicFigures",
+          "name": "DementiaNet public-figure speech",
+          "language": "en",
+          "task": "nonstandard_public_speech",
+          "target": "公开视频工程外部泛化二分类（对照、痴呆）"
+        }
+      ]
+    }
+  ],
+  "states": [
+    {
+      "id": "S01",
+      "name_zh": "停顿与流畅性负担",
+      "branch": "speech_behavior",
+      "clinical_question": "患者是否出现较多或较长的非发声中断",
+      "metrics": [
+        "silence_fraction",
+        "long_pause_rate_min",
+        "pause_mean_sec",
+        "pause_p90_sec"
+      ],
+      "weights": [
+        0.3,
+        0.3,
+        0.2,
+        0.2
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "silence_fraction",
+          "state": "S01",
+          "branch": "speech_behavior",
+          "direction": 1,
+          "reliability": 0.85,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "vad_threshold",
+            "task_duration"
+          ]
+        },
+        {
+          "id": "long_pause_rate_min",
+          "state": "S01",
+          "branch": "speech_behavior",
+          "direction": 1,
+          "reliability": 0.82,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "vad_threshold",
+            "task_type"
+          ]
+        },
+        {
+          "id": "pause_mean_sec",
+          "state": "S01",
+          "branch": "speech_behavior",
+          "direction": 1,
+          "reliability": 0.8,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "vad_threshold"
+          ]
+        },
+        {
+          "id": "pause_p90_sec",
+          "state": "S01",
+          "branch": "speech_behavior",
+          "direction": 1,
+          "reliability": 0.78,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "vad_threshold"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "name_zh": "输出效率",
+      "branch": "speech_behavior",
+      "clinical_question": "单位任务时间内能否维持连续有效的语音输出",
+      "metrics": [
+        "voiced_fraction",
+        "speech_run_mean_sec",
+        "speech_run_rate_min",
+        "speech_rate_wpm"
+      ],
+      "weights": [
+        0.32,
+        0.23,
+        0.15,
+        0.3
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "voiced_fraction",
+          "state": "S02",
+          "branch": "speech_behavior",
+          "direction": -1,
+          "reliability": 0.84,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "task_type",
+            "microphone_gain"
+          ]
+        },
+        {
+          "id": "speech_run_mean_sec",
+          "state": "S02",
+          "branch": "speech_behavior",
+          "direction": -1,
+          "reliability": 0.78,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "vad_threshold",
+            "task_type"
+          ]
+        },
+        {
+          "id": "speech_run_rate_min",
+          "state": "S02",
+          "branch": "speech_behavior",
+          "direction": 1,
+          "reliability": 0.72,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "task_type"
+          ]
+        },
+        {
+          "id": "speech_rate_wpm",
+          "state": "S02",
+          "branch": "speech_behavior",
+          "direction": -1,
+          "reliability": 0.82,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "task_type",
+            "transcript_quality"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "name_zh": "发声连续性",
+      "branch": "speech_behavior",
+      "clinical_question": "发声片段是否稳定，是否频繁碎片化",
+      "metrics": [
+        "speech_run_cv",
+        "long_pause_rate_min",
+        "voiced_fraction"
+      ],
+      "weights": [
+        0.4,
+        0.35,
+        0.25
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "speech_run_cv",
+          "state": "S03",
+          "branch": "speech_behavior",
+          "direction": 1,
+          "reliability": 0.74,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "task_type",
+            "vad_threshold"
+          ]
+        },
+        {
+          "id": "long_pause_rate_min",
+          "state": "S01",
+          "branch": "speech_behavior",
+          "direction": 1,
+          "reliability": 0.82,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "vad_threshold",
+            "task_type"
+          ]
+        },
+        {
+          "id": "voiced_fraction",
+          "state": "S02",
+          "branch": "speech_behavior",
+          "direction": -1,
+          "reliability": 0.84,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "task_type",
+            "microphone_gain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "name_zh": "声音强度稳定性",
+      "branch": "auxiliary_acoustic",
+      "clinical_question": "声音强度是否稳定；受设备影响，只作模型辅助",
+      "metrics": [
+        "rms_db_mean",
+        "rms_db_std"
+      ],
+      "weights": [
+        0.35,
+        0.65
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "rms_db_mean",
+          "state": "S04",
+          "branch": "auxiliary_acoustic",
+          "direction": 0,
+          "reliability": 0.65,
+          "role": "model_auxiliary",
+          "report_permission": false,
+          "confounds": [
+            "microphone_gain",
+            "distance"
+          ]
+        },
+        {
+          "id": "rms_db_std",
+          "state": "S04",
+          "branch": "auxiliary_acoustic",
+          "direction": 0,
+          "reliability": 0.68,
+          "role": "model_auxiliary",
+          "report_permission": false,
+          "confounds": [
+            "microphone_gain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "name_zh": "韵律变化",
+      "branch": "auxiliary_acoustic",
+      "clinical_question": "基频变化是否减少；必须同时考虑性别和跟踪可靠度",
+      "metrics": [
+        "f0_median_hz",
+        "f0_iqr_hz"
+      ],
+      "weights": [
+        0.2,
+        0.8
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "f0_median_hz",
+          "state": "S05",
+          "branch": "auxiliary_acoustic",
+          "direction": 0,
+          "reliability": 0.62,
+          "role": "model_auxiliary",
+          "report_permission": false,
+          "confounds": [
+            "sex",
+            "pitch_tracking"
+          ]
+        },
+        {
+          "id": "f0_iqr_hz",
+          "state": "S05",
+          "branch": "auxiliary_acoustic",
+          "direction": -1,
+          "reliability": 0.64,
+          "role": "cautious_support",
+          "report_permission": true,
+          "confounds": [
+            "sex",
+            "pitch_tracking",
+            "emotion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "name_zh": "低层谱学模式",
+      "branch": "auxiliary_acoustic",
+      "clinical_question": "只用于模型判别，不进入疾病机制解释",
+      "metrics": [
+        "zcr_mean",
+        "spectral_centroid_mean",
+        "spectral_bandwidth_mean",
+        "spectral_rolloff_mean",
+        "spectral_flatness_mean"
+      ],
+      "weights": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "zcr_mean",
+          "state": "S06",
+          "branch": "auxiliary_acoustic",
+          "direction": 0,
+          "reliability": 0.72,
+          "role": "model_auxiliary",
+          "report_permission": false,
+          "confounds": [
+            "noise",
+            "recording_device"
+          ]
+        },
+        {
+          "id": "spectral_centroid_mean",
+          "state": "S06",
+          "branch": "auxiliary_acoustic",
+          "direction": 0,
+          "reliability": 0.7,
+          "role": "model_auxiliary",
+          "report_permission": false,
+          "confounds": [
+            "recording_device"
+          ]
+        },
+        {
+          "id": "spectral_bandwidth_mean",
+          "state": "S06",
+          "branch": "auxiliary_acoustic",
+          "direction": 0,
+          "reliability": 0.68,
+          "role": "model_auxiliary",
+          "report_permission": false,
+          "confounds": [
+            "recording_device"
+          ]
+        },
+        {
+          "id": "spectral_rolloff_mean",
+          "state": "S06",
+          "branch": "auxiliary_acoustic",
+          "direction": 0,
+          "reliability": 0.68,
+          "role": "model_auxiliary",
+          "report_permission": false,
+          "confounds": [
+            "recording_device"
+          ]
+        },
+        {
+          "id": "spectral_flatness_mean",
+          "state": "S06",
+          "branch": "auxiliary_acoustic",
+          "direction": 0,
+          "reliability": 0.66,
+          "role": "model_auxiliary",
+          "report_permission": false,
+          "confounds": [
+            "noise"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "name_zh": "词汇提取与具体性",
+      "branch": "language",
+      "clinical_question": "是否更多依赖代词或低具体性表达",
+      "metrics": [
+        "pronoun_ratio",
+        "content_word_ratio"
+      ],
+      "weights": [
+        0.65,
+        0.35
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "pronoun_ratio",
+          "state": "S07",
+          "branch": "language",
+          "direction": 1,
+          "reliability": 0.78,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "language",
+            "transcript_quality",
+            "task_type"
+          ]
+        },
+        {
+          "id": "content_word_ratio",
+          "state": "S07",
+          "branch": "language",
+          "direction": -1,
+          "reliability": 0.62,
+          "role": "cautious_support",
+          "report_permission": false,
+          "confounds": [
+            "language",
+            "pos_proxy",
+            "transcript_quality"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "name_zh": "词汇多样性",
+      "branch": "language",
+      "clinical_question": "在控制样本长度后，词汇丰富度是否下降",
+      "metrics": [
+        "lexical_mattr50",
+        "lexical_ttr"
+      ],
+      "weights": [
+        0.8,
+        0.2
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "lexical_mattr50",
+          "state": "S08",
+          "branch": "language",
+          "direction": -1,
+          "reliability": 0.86,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "language",
+            "transcript_quality",
+            "sample_length"
+          ]
+        },
+        {
+          "id": "lexical_ttr",
+          "state": "S08",
+          "branch": "language",
+          "direction": -1,
+          "reliability": 0.55,
+          "role": "model_auxiliary",
+          "report_permission": false,
+          "confounds": [
+            "sample_length",
+            "transcript_quality"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "name_zh": "语义连贯性",
+      "branch": "language",
+      "clinical_question": "表达是否偏离任务目标或发生明显话题漂移",
+      "metrics": [],
+      "weights": [],
+      "planned_reason": "缺少经人工核验的任务相关性、话题漂移和跨语言语义算法",
+      "status": "planned",
+      "metricDetails": []
+    },
+    {
+      "id": "S10",
+      "name_zh": "信息密度与内容单元",
+      "branch": "language",
+      "clinical_question": "有效内容单位和单位时间信息量是否下降",
+      "metrics": [],
+      "weights": [],
+      "planned_reason": "缺少逐任务标准内容单元和人工评分规则",
+      "status": "planned",
+      "metricDetails": []
+    },
+    {
+      "id": "S11",
+      "name_zh": "句法复杂度",
+      "branch": "language",
+      "clinical_question": "话语长度和结构复杂度是否下降",
+      "metrics": [
+        "mean_utterance_words"
+      ],
+      "weights": [
+        1.0
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "mean_utterance_words",
+          "state": "S11",
+          "branch": "language",
+          "direction": -1,
+          "reliability": 0.72,
+          "role": "cautious_support",
+          "report_permission": true,
+          "confounds": [
+            "segmentation",
+            "language",
+            "transcript_quality"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "name_zh": "不流利、重复与修正",
+      "branch": "language",
+      "clinical_question": "填充、重复和自我修正负担是否升高",
+      "metrics": [
+        "filler_rate_100w",
+        "repair_rate_100w"
+      ],
+      "weights": [
+        0.4,
+        0.6
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "filler_rate_100w",
+          "state": "S12",
+          "branch": "language",
+          "direction": 1,
+          "reliability": 0.64,
+          "role": "cautious_support",
+          "report_permission": true,
+          "confounds": [
+            "language",
+            "habitual_speech",
+            "transcript_quality"
+          ]
+        },
+        {
+          "id": "repair_rate_100w",
+          "state": "S12",
+          "branch": "language",
+          "direction": 1,
+          "reliability": 0.76,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "CHAT_coding",
+            "transcript_quality"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "name_zh": "互动与语用负担",
+      "branch": "interaction",
+      "clinical_question": "患者是否需要更多访谈员支持或占用较少对话轮次",
+      "metrics": [
+        "patient_turn_share"
+      ],
+      "weights": [
+        1.0
+      ],
+      "status": "enabled",
+      "metricDetails": [
+        {
+          "id": "patient_turn_share",
+          "state": "S13",
+          "branch": "interaction",
+          "direction": -1,
+          "reliability": 0.8,
+          "role": "clinical_support",
+          "report_permission": true,
+          "confounds": [
+            "interview_protocol",
+            "role_annotation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "name_zh": "任务表现",
+      "branch": "task_performance",
+      "clinical_question": "标准任务的关键答案或内容单位完成度是否下降",
+      "metrics": [],
+      "weights": [],
+      "planned_reason": "缺少逐任务标准答案和人工校验评分器",
+      "status": "planned",
+      "metricDetails": []
+    }
+  ],
+  "metrics": [
+    {
+      "id": "duration_sec",
+      "state": "QC",
+      "branch": "qc",
+      "direction": 0,
+      "reliability": 0.99,
+      "role": "qc_only",
+      "report_permission": false,
+      "confounds": [
+        "task_duration"
+      ]
+    },
+    {
+      "id": "original_duration_sec",
+      "state": "QC",
+      "branch": "qc",
+      "direction": 0,
+      "reliability": 0.99,
+      "role": "qc_only",
+      "report_permission": false,
+      "confounds": [
+        "task_duration"
+      ]
+    },
+    {
+      "id": "clipping_fraction",
+      "state": "QC",
+      "branch": "qc",
+      "direction": 1,
+      "reliability": 0.95,
+      "role": "qc_only",
+      "report_permission": false,
+      "confounds": [
+        "recording_device"
+      ]
+    },
+    {
+      "id": "snr_proxy_db",
+      "state": "QC",
+      "branch": "qc",
+      "direction": -1,
+      "reliability": 0.8,
+      "role": "qc_only",
+      "report_permission": false,
+      "confounds": [
+        "background_noise",
+        "recording_device"
+      ]
+    },
+    {
+      "id": "role_coverage_fraction",
+      "state": "QC",
+      "branch": "qc",
+      "direction": 0,
+      "reliability": 0.9,
+      "role": "qc_only",
+      "report_permission": false,
+      "confounds": [
+        "speaker_diarization"
+      ]
+    },
+    {
+      "id": "transcript_available",
+      "state": "QC",
+      "branch": "qc",
+      "direction": 0,
+      "reliability": 0.99,
+      "role": "qc_only",
+      "report_permission": false,
+      "confounds": [
+        "transcript_availability"
+      ]
+    },
+    {
+      "id": "word_count",
+      "state": "QC",
+      "branch": "qc",
+      "direction": 0,
+      "reliability": 0.9,
+      "role": "qc_only",
+      "report_permission": false,
+      "confounds": [
+        "task_duration",
+        "prompt_count",
+        "transcript_completeness"
+      ]
+    },
+    {
+      "id": "silence_fraction",
+      "state": "S01",
+      "branch": "speech_behavior",
+      "direction": 1,
+      "reliability": 0.85,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "vad_threshold",
+        "task_duration"
+      ]
+    },
+    {
+      "id": "long_pause_rate_min",
+      "state": "S01",
+      "branch": "speech_behavior",
+      "direction": 1,
+      "reliability": 0.82,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "vad_threshold",
+        "task_type"
+      ]
+    },
+    {
+      "id": "pause_mean_sec",
+      "state": "S01",
+      "branch": "speech_behavior",
+      "direction": 1,
+      "reliability": 0.8,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "vad_threshold"
+      ]
+    },
+    {
+      "id": "pause_p90_sec",
+      "state": "S01",
+      "branch": "speech_behavior",
+      "direction": 1,
+      "reliability": 0.78,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "vad_threshold"
+      ]
+    },
+    {
+      "id": "voiced_fraction",
+      "state": "S02",
+      "branch": "speech_behavior",
+      "direction": -1,
+      "reliability": 0.84,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "task_type",
+        "microphone_gain"
+      ]
+    },
+    {
+      "id": "speech_run_mean_sec",
+      "state": "S02",
+      "branch": "speech_behavior",
+      "direction": -1,
+      "reliability": 0.78,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "vad_threshold",
+        "task_type"
+      ]
+    },
+    {
+      "id": "speech_run_rate_min",
+      "state": "S02",
+      "branch": "speech_behavior",
+      "direction": 1,
+      "reliability": 0.72,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "task_type"
+      ]
+    },
+    {
+      "id": "speech_rate_wpm",
+      "state": "S02",
+      "branch": "speech_behavior",
+      "direction": -1,
+      "reliability": 0.82,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "task_type",
+        "transcript_quality"
+      ]
+    },
+    {
+      "id": "speech_run_cv",
+      "state": "S03",
+      "branch": "speech_behavior",
+      "direction": 1,
+      "reliability": 0.74,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "task_type",
+        "vad_threshold"
+      ]
+    },
+    {
+      "id": "rms_db_mean",
+      "state": "S04",
+      "branch": "auxiliary_acoustic",
+      "direction": 0,
+      "reliability": 0.65,
+      "role": "model_auxiliary",
+      "report_permission": false,
+      "confounds": [
+        "microphone_gain",
+        "distance"
+      ]
+    },
+    {
+      "id": "rms_db_std",
+      "state": "S04",
+      "branch": "auxiliary_acoustic",
+      "direction": 0,
+      "reliability": 0.68,
+      "role": "model_auxiliary",
+      "report_permission": false,
+      "confounds": [
+        "microphone_gain"
+      ]
+    },
+    {
+      "id": "f0_median_hz",
+      "state": "S05",
+      "branch": "auxiliary_acoustic",
+      "direction": 0,
+      "reliability": 0.62,
+      "role": "model_auxiliary",
+      "report_permission": false,
+      "confounds": [
+        "sex",
+        "pitch_tracking"
+      ]
+    },
+    {
+      "id": "f0_iqr_hz",
+      "state": "S05",
+      "branch": "auxiliary_acoustic",
+      "direction": -1,
+      "reliability": 0.64,
+      "role": "cautious_support",
+      "report_permission": true,
+      "confounds": [
+        "sex",
+        "pitch_tracking",
+        "emotion"
+      ]
+    },
+    {
+      "id": "zcr_mean",
+      "state": "S06",
+      "branch": "auxiliary_acoustic",
+      "direction": 0,
+      "reliability": 0.72,
+      "role": "model_auxiliary",
+      "report_permission": false,
+      "confounds": [
+        "noise",
+        "recording_device"
+      ]
+    },
+    {
+      "id": "spectral_centroid_mean",
+      "state": "S06",
+      "branch": "auxiliary_acoustic",
+      "direction": 0,
+      "reliability": 0.7,
+      "role": "model_auxiliary",
+      "report_permission": false,
+      "confounds": [
+        "recording_device"
+      ]
+    },
+    {
+      "id": "spectral_bandwidth_mean",
+      "state": "S06",
+      "branch": "auxiliary_acoustic",
+      "direction": 0,
+      "reliability": 0.68,
+      "role": "model_auxiliary",
+      "report_permission": false,
+      "confounds": [
+        "recording_device"
+      ]
+    },
+    {
+      "id": "spectral_rolloff_mean",
+      "state": "S06",
+      "branch": "auxiliary_acoustic",
+      "direction": 0,
+      "reliability": 0.68,
+      "role": "model_auxiliary",
+      "report_permission": false,
+      "confounds": [
+        "recording_device"
+      ]
+    },
+    {
+      "id": "spectral_flatness_mean",
+      "state": "S06",
+      "branch": "auxiliary_acoustic",
+      "direction": 0,
+      "reliability": 0.66,
+      "role": "model_auxiliary",
+      "report_permission": false,
+      "confounds": [
+        "noise"
+      ]
+    },
+    {
+      "id": "pronoun_ratio",
+      "state": "S07",
+      "branch": "language",
+      "direction": 1,
+      "reliability": 0.78,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "language",
+        "transcript_quality",
+        "task_type"
+      ]
+    },
+    {
+      "id": "content_word_ratio",
+      "state": "S07",
+      "branch": "language",
+      "direction": -1,
+      "reliability": 0.62,
+      "role": "cautious_support",
+      "report_permission": false,
+      "confounds": [
+        "language",
+        "pos_proxy",
+        "transcript_quality"
+      ]
+    },
+    {
+      "id": "lexical_mattr50",
+      "state": "S08",
+      "branch": "language",
+      "direction": -1,
+      "reliability": 0.86,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "language",
+        "transcript_quality",
+        "sample_length"
+      ]
+    },
+    {
+      "id": "lexical_ttr",
+      "state": "S08",
+      "branch": "language",
+      "direction": -1,
+      "reliability": 0.55,
+      "role": "model_auxiliary",
+      "report_permission": false,
+      "confounds": [
+        "sample_length",
+        "transcript_quality"
+      ]
+    },
+    {
+      "id": "mean_utterance_words",
+      "state": "S11",
+      "branch": "language",
+      "direction": -1,
+      "reliability": 0.72,
+      "role": "cautious_support",
+      "report_permission": true,
+      "confounds": [
+        "segmentation",
+        "language",
+        "transcript_quality"
+      ]
+    },
+    {
+      "id": "filler_rate_100w",
+      "state": "S12",
+      "branch": "language",
+      "direction": 1,
+      "reliability": 0.64,
+      "role": "cautious_support",
+      "report_permission": true,
+      "confounds": [
+        "language",
+        "habitual_speech",
+        "transcript_quality"
+      ]
+    },
+    {
+      "id": "repair_rate_100w",
+      "state": "S12",
+      "branch": "language",
+      "direction": 1,
+      "reliability": 0.76,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "CHAT_coding",
+        "transcript_quality"
+      ]
+    },
+    {
+      "id": "patient_turn_share",
+      "state": "S13",
+      "branch": "interaction",
+      "direction": -1,
+      "reliability": 0.8,
+      "role": "clinical_support",
+      "report_permission": true,
+      "confounds": [
+        "interview_protocol",
+        "role_annotation"
+      ]
+    }
+  ],
+  "example": {
+    "caseId": "P-02D6C8956F",
+    "dataset": "PREPARE",
+    "task": "结构化认知语音任务",
+    "predictedLabel": "MCI",
+    "probabilities": {
+      "HC": 0.173,
+      "MCI": 0.678,
+      "AD": 0.149
+    },
+    "supportingEvidence": [
+      "speech_rate_wpm",
+      "S02"
+    ],
+    "counterEvidence": [
+      "f0_iqr_hz",
+      "silence_fraction",
+      "voiced_fraction",
+      "speech_run_cv",
+      "speech_run_rate_min",
+      "speech_run_mean_sec",
+      "pause_p90_sec",
+      "S01",
+      "S03"
+    ],
+    "qualityEvidence": [
+      "duration_sec",
+      "original_duration_sec",
+      "clipping_fraction",
+      "snr_proxy_db",
+      "role_coverage_fraction",
+      "transcript_available",
+      "word_count"
+    ],
+    "reportSections": [
+      "本次语音筛查结论：模型最终分类为MCI；概率范围为HC 17.3%、MCI 67.8%、AD相关风险 14.9%。该结果支持进一步认知筛查或转诊评估，但不支持仅凭语音确诊MCI或AD。",
+      "主要发现：支持MCI筛查假设的临床证据较有限，主要为输出效率中的语速指标：speech_rate_wpm为140.0词/分钟，训练参考方向z=0.50，可靠性较低至中等。反证较多：S01停顿负担状态z=-0.22，静音占比0.0187、z=-0.58，90百分位停顿0.04秒、z=-0.13；S02中发声占比0.981、z=-0.58，发声段率50.0次/分钟、z=-0.42，平均发声段1.178秒、z=-0.35；S03发声连续性状态z=-0.33，speech_run_cv为0.787、z=-0.46。f0_iqr_hz为103.61Hz，z=-2.46，仅作为低解释性辅助反证。",
+      "可核查证据：S02/S01片段SEG-CC0822C60D为20.0-30.0秒，静音占比0.020、发声占比0.980；SEG-7B5F6FEC56为0.0-10.0秒，静音占比0.017、发声占比0.983。片段层面未显示明显长静音负担，主要风险来自模型综合后仍偏向MCI。",
+      "采集质量与解释边界：录音30.0秒；无削波，信噪比代理值27.10dB，角色覆盖完整且有转录，词数70。语速受转录质量、任务类型和语言产出策略影响；当前缺少词汇提取、语义连贯性和任务内容单元评分，故疾病相关解释边界较宽。",
+      "建议：进行正式认知量表筛查，并复核病史、用药、情绪/焦虑抑郁、睡眠、听力和教育语言背景；若量表异常或功能下降明确，建议转至记忆门诊或神经心理评估。"
+    ],
+    "uncertainty": "最终MCI概率较高，但临床可报告支持证据单薄，且停顿、发声占比和连续性多为反证；存在模型概率与可解释语音证据不完全一致，应在临床复核中明确说明。",
+    "trace": [
+      {
+        "stage": "片段",
+        "value": "SEG-CC0822C60D / SEG-7B5F6FEC56",
+        "note": "保留时间定位与静音/发声比例"
+      },
+      {
+        "stage": "指标",
+        "value": "speech_rate_wpm = 140.0",
+        "note": "相对健康训练参考，方向 z = 0.50"
+      },
+      {
+        "stage": "状态",
+        "value": "S02 输出效率",
+        "note": "轻度风险支持；S01、S03 为反证"
+      },
+      {
+        "stage": "融合",
+        "value": "MCI 67.8%",
+        "note": "概率与证据冲突同时保留"
+      },
+      {
+        "stage": "临床建议",
+        "value": "进一步正式认知评估",
+        "note": "不以语音结果替代临床诊断"
+      }
+    ]
+  }
+}
